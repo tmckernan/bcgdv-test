@@ -1,0 +1,18 @@
+default: &default
+  adapter: mysql2
+  username: <%= ENV['MYSQL_USER'] || 'root' %>
+  password: <%= ENV['MYSQL_PASSWORD'] || 'root' %>
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: image_development
+
+test:
+  <<: *default
+  database: image_test
+
+production:
+  <<: *default
+  database: image_production
